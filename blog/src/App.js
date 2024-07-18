@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate,
+  // Navigate,
 } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Blog from "./pages/blog/Blog";
@@ -15,6 +15,7 @@ import Dashboard from "./pages/admin/dashboard/Dashboard";
 import MyState from "./context/data/myState";
 import CreateBlog from "./pages/admin/createBlog/CreateBlog";
 import { Toaster } from "react-hot-toast";
+import Register from "./pages/admin/adminLogin/Register";
 
 function App() {
   return (
@@ -27,20 +28,21 @@ function App() {
             <Route path="/allblogs" element={<AllBlogs />} />
             <Route path="/bloginfo/:id" element={<BlogInfo />} />
             <Route path="/adminlogin" element={<AdminLogin />} />
+            <Route path="/register" element={<Register />} />
             <Route
               path="/dashboard"
               element={
-                <ProtectedRouteForAdmin>
+                // <ProtectedRouteForAdmin>
                   <Dashboard />
-                </ProtectedRouteForAdmin>
+                // </ProtectedRouteForAdmin>
               }
             />
             <Route
               path="/createblog"
               element={
-                <ProtectedRouteForAdmin>
+                // <ProtectedRouteForAdmin>
                   <CreateBlog />
-                </ProtectedRouteForAdmin>
+                // </ProtectedRouteForAdmin>
               }
             />
             <Route path="/*" element={<NoPage />} />
@@ -54,11 +56,11 @@ function App() {
 
 export default App;
 
-export const ProtectedRouteForAdmin = ({ children }) => {
-  const admin = JSON.parse(localStorage.getItem("admin"));
-  if (admin?.user?.email === "alt@gmail.com") {
-    return children;
-  } else {
-    return <Navigate to={"/adminlogin"} />;
-  }
-};
+// export const ProtectedRouteForAdmin = ({ children }) => {
+//   const admin = JSON.parse(localStorage.getItem("admin"));
+//   if (admin?.user?.email === "alt@gmail.com") {
+//     return children;
+//   } else {
+//     return <Navigate to={"/adminlogin"} />;
+//   }
+// };

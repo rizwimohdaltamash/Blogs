@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineShareAlt, AiOutlineSearch } from 'react-icons/ai';
+// import { AiOutlineShareAlt, AiOutlineSearch } from 'react-icons/ai';
 import { FaSun, FaMoon } from 'react-icons/fa'; // Assuming these icons for light/dark mode
 
 import myContext from '../../context/data/myContext'; // Assuming your context import
@@ -28,6 +28,12 @@ export default function Nav() {
             <li className="p-1 font-normal">
                 <Link to={'/adminlogin'} className="flex items-center text-white">
                     Admin Login
+                </Link>
+            </li>
+
+            <li className="p-1 font-normal">
+                <Link to={'/register'} className="flex items-center text-white">
+                    Register
                 </Link>
             </li>
         </ul>

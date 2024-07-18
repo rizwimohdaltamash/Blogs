@@ -1,10 +1,12 @@
 import React, { Fragment, useContext, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import myContext from "../../context/data/myContext";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchDialog() {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(!open);
+    const navigate=useNavigate(); 
 
     const context = useContext(myContext);
     const { mode, searchkey,
@@ -12,7 +14,7 @@ export default function SearchDialog() {
 
 
     return (
-        <Fragment>
+        <Fragment >
             {/* Search Icon */}
             <div onClick={handleOpen} style={{ cursor: 'pointer' }}>
                 <AiOutlineSearch size={20} color="white" />
@@ -46,7 +48,7 @@ export default function SearchDialog() {
                                 const {thumbnail,date,id} =item;
                                 return(
                                     <div key={index}>
-                                     <img className="w-1/2 mb-2 rounded-lg" src={thumbnail} alt="Blog Thumbnail" />
+                                     <img className="w-1/2 mb-2 rounded-lg" src={thumbnail} alt="Blog Thumbnail" onClick={() => navigate(`/bloginfo/${id}`)} />
                                 <p className="text-sm text-gray-600">{date}</p>
                                 <h1 className="text-gray-600">{item.blogs.title}</h1>
                                     </div>
@@ -65,3 +67,4 @@ export default function SearchDialog() {
         </Fragment>
     );
 }
+

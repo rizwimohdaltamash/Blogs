@@ -1,10 +1,7 @@
-// import { createContext,useContext } from 'react';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
-
-// const Firebasecontext = createContext(null);
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhEydhaMdZgwEIlAyH2E5gK_995kabMSQ",
@@ -14,7 +11,6 @@ const firebaseConfig = {
   messagingSenderId: "165437922168",
   appId: "1:165437922168:web:e3b68bb815729bbd62468d",
 };
-
 
 const app = initializeApp(firebaseConfig);
 
